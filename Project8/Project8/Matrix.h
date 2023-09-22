@@ -13,6 +13,7 @@ public:
 	void Print();
 	void Input();
 	void Random();
+	Matrix operator+(int a);
 	~Matrix();
 };
 
@@ -127,6 +128,20 @@ void Matrix<T>::Random()
 			arr[i][j] = 1;
 		}
 	}
+}
+
+template<class T>
+inline Matrix<T> Matrix<T>::operator+(int a)
+{
+	Matrix res(this);
+	for (int i = 0; i < res.size1; i++)
+	{
+		for (int j = 0; j < res.size2; j++)
+		{
+			res[i][j] += a;
+		}
+	}
+	return res;
 }
 
 template<class T>
